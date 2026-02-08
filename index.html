@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Happy Birthday Aaria 💜</title>
+<title>Happy Birthday Aaria 🤍</title>
 
 <style>
 body{
@@ -23,13 +23,16 @@ body{
   text-align:center;
 }
 
-h1{font-weight:500}
+h1{
+  font-weight:500;
+  margin-bottom:40px;
+}
 
 /* 🎂 Cake */
 .cake{
   width:260px;
   height:140px;
-  background:linear-gradient(#e7c29b,#d6a97b);
+  background:linear-gradient(#f7c6b7,#f1b2a2);
   border-radius:70px;
   position:relative;
   box-shadow:0 25px 40px rgba(0,0,0,.15);
@@ -40,7 +43,7 @@ h1{font-weight:500}
   top:-30px;
   width:100%;
   height:60px;
-  background:white;
+  background:#fff;
   border-radius:60px;
 }
 
@@ -49,7 +52,7 @@ h1{font-weight:500}
   bottom:-20px;
   width:22px;
   height:30px;
-  background:white;
+  background:#fff;
   border-radius:0 0 20px 20px;
 }
 .drip:nth-child(1){left:40px}
@@ -63,7 +66,7 @@ h1{font-weight:500}
   top:-55px;
   width:10px;
   height:35px;
-  background:#ff9aa2;
+  background:#ffd1dc;
   border-radius:4px;
 }
 .candle::after{
@@ -73,7 +76,7 @@ h1{font-weight:500}
   left:-3px;
   width:16px;
   height:16px;
-  background:radial-gradient(circle,#ffd966,#ff9800);
+  background:radial-gradient(circle,#fff6c7,#ffb703);
   border-radius:50%;
 }
 .c1{left:90px}
@@ -87,26 +90,44 @@ h1{font-weight:500}
   width:100%;
   font-size:18px;
   font-weight:500;
-  color:#7c5cff;
+  color:#ffffff;
 }
 
 /* 📅 Calendar */
 .calendar{
-  width:140px;
+  width:180px;
   border-radius:18px;
   box-shadow:0 20px 35px rgba(0,0,0,.15);
   overflow:hidden;
 }
+
 .calendar .top{
-  background:#7c5cff;
+  background:#f1b2a2;
   color:white;
   padding:10px;
-}
-.calendar .date{
-  padding:25px;
-  font-size:28px;
   font-weight:600;
-  color:#7c5cff;
+}
+
+.calendar .grid{
+  display:grid;
+  grid-template-columns:repeat(7,1fr);
+  gap:6px;
+  padding:12px;
+  font-size:13px;
+}
+
+.day{
+  opacity:.5;
+}
+
+.date{
+  padding:6px 0;
+  border-radius:50%;
+}
+
+.mark{
+  border:2px solid #f1b2a2;
+  font-weight:600;
 }
 
 /* 🎉 Confetti */
@@ -139,7 +160,7 @@ h1{font-weight:500}
 
 <div class="container">
   <div>
-    <h1>Happy Birthday Aaria 💜</h1>
+    <h1>Happy Birthday Aaria 🤍</h1>
 
     <div class="cake">
       <div class="icing">
@@ -158,8 +179,18 @@ h1{font-weight:500}
   </div>
 
   <div class="calendar">
-    <div class="top">February</div>
-    <div class="date">8teen</div>
+    <div class="top">8teen</div>
+    <div class="grid">
+      <div class="day">S</div><div class="day">M</div><div class="day">T</div>
+      <div class="day">W</div><div class="day">T</div><div class="day">F</div><div class="day">S</div>
+
+      <!-- Feb dates -->
+      <div></div><div></div><div class="date">1</div><div class="date">2</div><div class="date">3</div><div class="date">4</div><div class="date">5</div>
+      <div class="date">6</div><div class="date">7</div><div class="date">8</div><div class="date">9</div><div class="date">10</div><div class="date">11</div><div class="date">12</div>
+      <div class="date">13</div><div class="date">14</div><div class="date">15</div><div class="date">16</div><div class="date">17</div><div class="date">18</div><div class="date">19</div>
+      <div class="date">20</div><div class="date">21</div><div class="date">22</div><div class="date">23</div><div class="date">24</div><div class="date">25</div><div class="date mark">26</div>
+      <div class="date">27</div><div class="date">28</div>
+    </div>
   </div>
 </div>
 
@@ -179,5 +210,6 @@ function confetti(){
 
 </body>
 </html>
+
 
 
