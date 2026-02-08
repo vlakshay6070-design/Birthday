@@ -15,10 +15,10 @@ body{
   align-items:center;
 }
 
+/* Start screen */
 #startScreen{
   text-align:center;
 }
-
 #startBtn{
   padding:16px 32px;
   font-size:18px;
@@ -29,53 +29,32 @@ body{
   cursor:pointer;
 }
 
+/* Main content */
 #content{
   display:none;
   text-align:center;
 }
 
 h1{
-  margin-bottom:40px;
+  margin-bottom:70px; /* pushed UP so no collision */
   font-weight:500;
 }
 
-/* 🎂 Cake */
+/* 🎂 Cake (NO frosting now) */
 .cake{
   width:260px;
-  height:140px;
+  height:160px;
   background:linear-gradient(#f7c6b7,#f1b2a2);
-  border-radius:70px;
+  border-radius:80px;
   position:relative;
   margin:0 auto;
   box-shadow:0 25px 40px rgba(0,0,0,.15);
 }
 
-.icing{
-  position:absolute;
-  top:-30px;
-  width:100%;
-  height:60px;
-  background:#fff;
-  border-radius:60px;
-}
-
-.drip{
-  position:absolute;
-  bottom:-20px;
-  width:22px;
-  height:30px;
-  background:#fff;
-  border-radius:0 0 20px 20px;
-}
-.drip:nth-child(1){left:40px}
-.drip:nth-child(2){left:90px;height:40px}
-.drip:nth-child(3){left:140px}
-.drip:nth-child(4){left:190px;height:35px}
-
 /* Candles */
 .candle{
   position:absolute;
-  top:-55px;
+  top:-45px; /* lowered */
   width:10px;
   height:35px;
   background:#ffd1dc;
@@ -98,7 +77,7 @@ h1{
 /* Name */
 .name{
   position:absolute;
-  top:55px;
+  top:65px;
   width:100%;
   color:white;
   font-weight:500;
@@ -112,14 +91,12 @@ h1{
   overflow:hidden;
   box-shadow:0 20px 35px rgba(0,0,0,.15);
 }
-
 .cal-top{
   background:#f1b2a2;
   color:white;
   padding:10px;
   font-weight:600;
 }
-
 .grid{
   display:grid;
   grid-template-columns:repeat(7,1fr);
@@ -127,10 +104,16 @@ h1{
   padding:12px;
   font-size:13px;
 }
-
 .day{opacity:.5}
-.date{padding:6px;border-radius:50%}
-.mark{border:2px solid #f1b2a2;font-weight:600}
+.date{
+  padding:6px;
+  border-radius:50%;
+}
+.mark{
+  background:#f1b2a2;
+  color:white;
+  font-weight:600;
+}
 
 /* 🎉 Confetti */
 .confetti{
@@ -149,32 +132,24 @@ h1{
 }
 
 @media(max-width:700px){
-  h1{margin-bottom:30px}
+  h1{margin-bottom:60px}
 }
 </style>
 </head>
 
-<body>
+<body onclick="confettiBurst()">
 
 <div id="startScreen">
   <button id="startBtn">Tap to start 🎵</button>
 </div>
 
-<div id="content" onclick="confettiBurst()">
+<div id="content">
   <h1>Happy Birthday Aaria 🤍</h1>
 
   <div class="cake">
-    <div class="icing">
-      <div class="drip"></div>
-      <div class="drip"></div>
-      <div class="drip"></div>
-      <div class="drip"></div>
-    </div>
-
     <div class="candle c1"></div>
     <div class="candle c2"></div>
     <div class="candle c3"></div>
-
     <div class="name">Aaria</div>
   </div>
 
@@ -188,7 +163,8 @@ h1{
       <div class="date">1</div><div class="date">2</div><div class="date">3</div><div class="date">4</div><div class="date">5</div>
       <div class="date">6</div><div class="date">7</div><div class="date">8</div><div class="date">9</div><div class="date">10</div><div class="date">11</div><div class="date">12</div>
       <div class="date">13</div><div class="date">14</div><div class="date">15</div><div class="date">16</div><div class="date">17</div><div class="date">18</div><div class="date">19</div>
-      <div class="date">20</div><div class="date">21</div><div class="date">22</div><div class="date">23</div><div class="date">24</div><div class="date">25</div><div class="date mark">26</div>
+      <div class="date">20</div><div class="date">21</div><div class="date">22</div><div class="date">23</div><div class="date">24</div><div class="date">25</div>
+      <div class="date mark">26</div>
       <div class="date">27</div><div class="date">28</div>
     </div>
   </div>
@@ -225,6 +201,7 @@ function confettiBurst(){
 
 </body>
 </html>
+
 
 
 
