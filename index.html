@@ -1,129 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday Aaria 🤍</title>
+  <meta charset="UTF-8" />
+  <title>Happy Birthday Aaria 💜</title>
 
-<style>
-body{
-  margin:0;
-  height:100vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  background:#fff;
-  font-family:Arial, sans-serif;
-}
+  <style>
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
 
-h1{
-  margin:10px 0 0;
-  font-size:22px;
-}
+    .container {
+      display: flex;
+      align-items: center;
+      gap: 60px;
+      flex-wrap: wrap;
+      text-align: center;
+    }
 
-p{
-  margin:5px 0 15px;
-  color:#666;
-}
+    h1 {
+      margin-bottom: 20px;
+      font-weight: 500;
+    }
 
-.scene{
-  width:200px;
-  height:200px;
-  perspective:600px;
-}
+    /* 🎂 Cake */
+    .cake {
+      width: 260px;
+      height: 140px;
+      background: linear-gradient(#e7c29b, #d6a97b);
+      border-radius: 70px;
+      position: relative;
+      box-shadow: 0 25px 40px rgba(0,0,0,0.15);
+    }
 
-.cake{
-  width:150px;
-  height:100px;
-  position:relative;
-  transform-style:preserve-3d;
-  transform: rotateX(15deg);
-}
+    .icing {
+      position: absolute;
+      top: -30px;
+      left: 0;
+      width: 100%;
+      height: 60px;
+      background: #ffffff;
+      border-radius: 60px;
+    }
 
-.layer{
-  position:absolute;
-  width:150px;
-  height:50px;
-  background:#f4c2c2;
-  border-radius:10px;
-}
+    .drip {
+      position: absolute;
+      bottom: -20px;
+      width: 22px;
+      height: 30px;
+      background: white;
+      border-radius: 0 0 20px 20px;
+    }
 
-.layer.top{
-  top:0;
-  background:#ffe4e1;
-}
+    .drip:nth-child(1) { left: 40px; }
+    .drip:nth-child(2) { left: 90px; height: 40px; }
+    .drip:nth-child(3) { left: 140px; }
+    .drip:nth-child(4) { left: 190px; height: 35px; }
 
-.layer.bottom{
-  top:40px;
-  background:#f2b6b6;
-}
+    /* 📅 Calendar */
+    .calendar {
+      width: 140px;
+      border-radius: 18px;
+      box-shadow: 0 20px 35px rgba(0,0,0,0.15);
+      overflow: hidden;
+    }
 
-.candle{
-  width:6px;
-  height:25px;
-  background:#ff6961;
-  position:absolute;
-  top:-25px;
-  left:72px;
-}
+    .calendar .top {
+      background: #7c5cff;
+      color: white;
+      padding: 10px;
+      font-size: 14px;
+    }
 
-.flame{
-  width:10px;
-  height:10px;
-  background:orange;
-  border-radius:50%;
-  position:absolute;
-  top:-10px;
-  left:-2px;
-  animation:flicker 0.6s infinite alternate;
-}
+    .calendar .date {
+      background: white;
+      padding: 25px 10px;
+      font-size: 28px;
+      font-weight: 600;
+      color: #7c5cff;
+    }
 
-@keyframes flicker{
-  from{transform:scale(1);}
-  to{transform:scale(1.2);}
-}
-
-#tap{
-  position:fixed;
-  inset:0;
-  background:white;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  font-size:20px;
-  cursor:pointer;
-}
-</style>
+    /* Mobile */
+    @media (max-width: 700px) {
+      .container {
+        flex-direction: column;
+        gap: 30px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<div id="tap">Tap to start 🎵</div>
+  <audio autoplay loop>
+    <source src="futile-devices.mp3" type="audio/mpeg">
+  </audio>
 
-<h1>Happy Birthday Aaria 🤍</h1>
-<p>26 February ✨</p>
+  <div class="container">
+    <div>
+      <h1>Happy Birthday Aaria 💜</h1>
 
-<div class="scene">
-  <div class="cake">
-    <div class="layer top"></div>
-    <div class="layer bottom"></div>
-    <div class="candle">
-      <div class="flame"></div>
+      <div class="cake">
+        <div class="icing">
+          <div class="drip"></div>
+          <div class="drip"></div>
+          <div class="drip"></div>
+          <div class="drip"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="calendar">
+      <div class="top">February</div>
+      <div class="date">8teen</div>
     </div>
   </div>
-</div>
-
-<audio id="music" loop>
-  <source src="futile-devices.mp3" type="audio/mpeg">
-</audio>
-
-<script>
-document.getElementById("tap").onclick = () => {
-  document.getElementById("music").play();
-  document.getElementById("tap").style.display = "none";
-};
-</script>
 
 </body>
 </html>
