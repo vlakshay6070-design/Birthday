@@ -110,20 +110,25 @@
 
   /* ---------- SLIDE 1 ---------- */
 
-  /* playlist button ONLY slide 1 */
+  /* playlist button ONLY slide 1 — moved lower so no collision */
   #playlistBtn{
     position:absolute;
-    top:14px; right:14px;
-    width:62px; height:48px; /* slightly bigger */
+    top:70px; right:16px;           /* <<< FIXED */
+    width:66px; height:52px;
     background:rgba(255,255,255,0.95);
-    border-radius:16px;
+    border-radius:18px;
     border:2px solid #ff8fab;
     cursor:pointer;
     display:flex; justify-content:center; align-items:center;
     box-shadow:0 10px 22px rgba(0,0,0,0.25);
     z-index:10;
   }
-  .envIcon{ font-size:24px; display:inline-block; animation:envWiggle 2.8s infinite; transform-origin:50% 60%; }
+  .envIcon{
+    font-size:26px;
+    display:inline-block;
+    animation:envWiggle 2.8s infinite;
+    transform-origin:50% 60%;
+  }
   @keyframes envWiggle{
     0%, 86%, 100% { transform:rotate(0deg) translateX(0); }
     88% { transform:rotate(-7deg) translateX(-1px); }
@@ -136,44 +141,41 @@
   .titleWrap{ text-align:center; margin-top:6px; }
   .title{
     margin:12px 0 0;
-    font-size:34px;
+    font-size:36px;
     font-weight:900;
     letter-spacing:.3px;
     color:#fff;
     text-shadow:0 10px 34px rgba(0,0,0,0.55);
   }
   .subGlow{
-    margin:8px 0 22px; /* this gives the vertical gap before cake */
-    font-weight:800;
+    margin:10px 0 26px;
+    font-weight:900;
     color:rgba(255,255,255,0.85);
     text-shadow:0 0 16px rgba(255,255,255,0.7);
     font-size:14px;
   }
 
-  /* layout row (desktop) */
+  /* layout row */
   .contentRow{
     display:flex;
     gap:18px;
     align-items:flex-start;
     justify-content:center;
-    margin-top:0px;
   }
   .centerCol{
     width:520px; max-width:100%;
     display:flex;
     flex-direction:column;
     align-items:center;
-    padding-top:0px;
   }
 
   /* CAKE */
   .cake{
-    width:260px; height:170px;
+    width:270px; height:175px;
     background:#f6b1c3;
-    border-radius:26px;
+    border-radius:28px;
     position:relative;
     cursor:pointer;
-    margin-top:0px;
     box-shadow:0 16px 34px rgba(0,0,0,0.22);
   }
   .cake::before{
@@ -182,22 +184,23 @@
     top:-18px; left:0;
     width:100%; height:30px;
     background:#ffd6e0;
-    border-radius:26px 26px 16px 16px;
+    border-radius:28px 28px 16px 16px;
   }
 
+  /* MANY SPRINKLES */
   .sprinkle{ position:absolute; width:6px; height:6px; border-radius:50%; }
-  .s1{top:14px; left:36px; background:#ff6f91}
-  .s2{top:22px; left:98px; background:#ffc75f}
-  .s3{top:15px; left:165px; background:#845ec2}
-  .s4{top:24px; left:218px; background:#4d96ff}
-  .s5{top:10px; left:132px; background:#00c9a7}
+  .spA{background:#ff6f91}
+  .spB{background:#ffc75f}
+  .spC{background:#845ec2}
+  .spD{background:#4d96ff}
+  .spE{background:#00c9a7}
 
   .cake-photo{
     position:absolute;
     top:44px; left:50%;
     transform:translateX(-50%);
-    width:86px; height:86px;
-    border-radius:16px;
+    width:90px; height:90px;
+    border-radius:18px;
     overflow:hidden;
     border:3px solid rgba(255,255,255,0.95);
     box-shadow:0 10px 20px rgba(0,0,0,0.25);
@@ -285,26 +288,61 @@
   .day{ padding:5px 0; text-align:center; border-radius:10px; }
   .mark{ background:#ffd1dc; border-radius:999px; font-weight:900; }
 
-  /* PHOTOS (Slide 1) — back to your original clean row */
+  /* PHOTOS + cute designs */
+  .photosWrap{
+    margin-top:18px;
+    width:min(360px, 92vw);
+    text-align:center;
+    position:relative;
+  }
+  .photosDecor{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    color:rgba(255,255,255,0.85);
+    font-weight:900;
+    letter-spacing:1px;
+    margin-bottom:10px;
+  }
+  .decorLine{
+    height:2px;
+    width:70px;
+    background:linear-gradient(90deg, transparent, rgba(255,255,255,0.9), transparent);
+    border-radius:99px;
+  }
+  .decorDots{
+    position:absolute;
+    inset:auto 0 -10px 0;
+    height:16px;
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    opacity:0.9;
+  }
+  .decorDots span{
+    width:7px; height:7px;
+    border-radius:50%;
+    background:rgba(255,255,255,0.75);
+    box-shadow:0 0 12px rgba(255,255,255,0.75);
+  }
+
   .photos{
     display:flex;
     gap:12px;
-    margin-top:16px;
     justify-content:center;
   }
   .photos img{
     width:65px;
     height:85px;
     object-fit:cover;
-    border-radius:10px;
-    border:2px solid white;
+    border-radius:12px;
+    border:2px solid rgba(255,255,255,0.95);
     cursor:pointer;
     transition:0.2s;
     box-shadow:0 12px 22px rgba(0,0,0,0.22);
   }
-  .photos img:hover{
-    transform:scale(1.1);
-  }
+  .photos img:hover{ transform:scale(1.1); }
 
   /* “Open Letter” button */
   .openLetterBtn{
@@ -394,13 +432,12 @@
     font-weight:800;
   }
 
-  /* envelope stage includes photo below */
   .envelopeStage{
     display:flex;
     flex-direction:column;
     align-items:center;
     justify-content:flex-start;
-    margin-top:-6px; /* move whole block upward */
+    margin-top:-6px;
     gap:16px;
   }
 
@@ -454,7 +491,7 @@
     font-size:20px; color:white;
   }
 
-  /* photo under envelope (slide 2) */
+  /* ✅ Slide 2 photo FULL — no cropping */
   .slide2Photo{
     width:min(640px, 92vw);
     border-radius:22px;
@@ -465,10 +502,10 @@
   }
   .slide2Photo img{
     width:100%;
-    height:auto;
+    height:auto;        /* ✅ full image */
     display:block;
-    object-fit:cover;
-    filter: contrast(1.03) saturate(0.95);
+    object-fit:contain; /* ✅ no crop */
+    background:rgba(0,0,0,0.12);
   }
 
   /* LETTER OVERLAY */
@@ -549,13 +586,16 @@
     filter: sepia(0.22) contrast(1.02) saturate(0.95);
   }
 
-  /* MOBILE FIX */
+  /* MOBILE */
   @media (max-width: 720px){
     body{ background-attachment: scroll; }
-    .panel{ min-height: 700px; padding:18px 16px 28px; }
+    .panel{ min-height: 720px; padding:18px 16px 28px; }
 
     .title{ font-size:28px; }
-    .subGlow{ margin:8px 0 18px; }
+    .subGlow{ margin:8px 0 22px; }
+
+    /* playlist button moved further down on phone */
+    #playlistBtn{ top:86px; right:12px; }
 
     .contentRow{
       flex-direction:column;
@@ -565,14 +605,10 @@
 
     .calendar{ width:min(360px, 92vw); }
 
-    .cake{ width:230px; height:155px; }
+    .cake{ width:240px; height:160px; }
     .candles{ top:-26px; gap:30px; }
 
-    .photos{ gap:10px; margin-top:14px; }
     .photos img{ width:62px; height:84px; }
-
-    #playlistBtn{ top:12px; right:12px; }
-    .envelopeStage{ margin-top:-10px; }
     .envelope{ height:280px; }
   }
 
@@ -642,11 +678,25 @@
         <div class="contentRow">
           <div class="centerCol">
             <div class="cake" id="cake">
-              <div class="sprinkle s1"></div>
-              <div class="sprinkle s2"></div>
-              <div class="sprinkle s3"></div>
-              <div class="sprinkle s4"></div>
-              <div class="sprinkle s5"></div>
+
+              <!-- extra sprinkles (no more empty look) -->
+              <div class="sprinkle spA" style="top:14px;left:36px"></div>
+              <div class="sprinkle spB" style="top:22px;left:98px"></div>
+              <div class="sprinkle spC" style="top:15px;left:165px"></div>
+              <div class="sprinkle spD" style="top:24px;left:218px"></div>
+              <div class="sprinkle spE" style="top:10px;left:132px"></div>
+
+              <div class="sprinkle spA" style="top:18px;left:62px"></div>
+              <div class="sprinkle spB" style="top:10px;left:78px"></div>
+              <div class="sprinkle spC" style="top:22px;left:140px"></div>
+              <div class="sprinkle spD" style="top:12px;left:190px"></div>
+              <div class="sprinkle spE" style="top:20px;left:112px"></div>
+
+              <div class="sprinkle spA" style="top:16px;left:210px"></div>
+              <div class="sprinkle spB" style="top:23px;left:40px"></div>
+              <div class="sprinkle spC" style="top:9px;left:156px"></div>
+              <div class="sprinkle spD" style="top:18px;left:176px"></div>
+              <div class="sprinkle spE" style="top:13px;left:58px"></div>
 
               <div class="candles">
                 <div class="candle"><div class="flame"></div></div>
@@ -662,12 +712,24 @@
 
             <div id="wishMsg">Make a wish ✨</div>
 
-            <!-- 4 photos (original design) -->
-            <div class="photos">
-              <img src="a1.png" onclick="openPopup(this.src)" alt="">
-              <img src="a2.png" onclick="openPopup(this.src)" alt="">
-              <img src="a3.png" onclick="openPopup(this.src)" alt="">
-              <img src="a4.png" onclick="openPopup(this.src)" alt="">
+            <!-- photo section with designs -->
+            <div class="photosWrap">
+              <div class="photosDecor">
+                <div class="decorLine"></div>
+                ✦ ✦ ✦
+                <div class="decorLine"></div>
+              </div>
+
+              <div class="photos">
+                <img src="a1.png" onclick="openPopup(this.src)" alt="">
+                <img src="a2.png" onclick="openPopup(this.src)" alt="">
+                <img src="a3.png" onclick="openPopup(this.src)" alt="">
+                <img src="a4.png" onclick="openPopup(this.src)" alt="">
+              </div>
+
+              <div class="decorDots">
+                <span></span><span></span><span></span><span></span><span></span>
+              </div>
             </div>
 
             <button class="openLetterBtn" onclick="goToSlide(2); event.stopPropagation();">
@@ -701,7 +763,6 @@
             <div class="env-seal">❤</div>
           </div>
 
-          <!-- photo in the empty space under envelope -->
           <div class="slide2Photo">
             <img src="futile.jpg" alt="futile">
           </div>
@@ -747,36 +808,25 @@ Happy Birthday once again, Aaria 🤍`;
     $("letterText").textContent = para;
 
     const isMobile = window.matchMedia("(max-width: 720px)").matches;
-    buildStars(isMobile ? 32 : 70);
+    buildStars(isMobile ? 28 : 64);
 
     updateNav();
   }
 
   /* slides */
   function goToSlide(n){ showSlide(n); }
-
   function showSlide(n){
-    for(let i=1;i<=totalSlides;i++){
-      $("slide"+i).classList.remove("active");
-    }
+    for(let i=1;i<=totalSlides;i++) $("slide"+i).classList.remove("active");
     $("slide"+n).classList.add("active");
     currentSlide = n;
     updateNav();
   }
-
-  function nextSlide(){
-    if(currentSlide < totalSlides) showSlide(currentSlide+1);
-  }
-  function prevSlide(){
-    if(currentSlide > 1) showSlide(currentSlide-1);
-  }
+  function nextSlide(){ if(currentSlide < totalSlides) showSlide(currentSlide+1); }
+  function prevSlide(){ if(currentSlide > 1) showSlide(currentSlide-1); }
 
   function updateNav(){
-    if(currentSlide === 1){
-      $("nav").classList.add("hidden");
-    }else{
-      $("nav").classList.remove("hidden");
-    }
+    if(currentSlide === 1) $("nav").classList.add("hidden");
+    else $("nav").classList.remove("hidden");
 
     $("prevBtn").disabled = currentSlide === 1;
     $("nextBtn").disabled = currentSlide === totalSlides;
@@ -885,7 +935,6 @@ Happy Birthday once again, Aaria 🤍`;
   }
   function closeLetter(){ $("letterOverlay").style.display="none"; }
 
-  // start on slide 1
   showSlide(1);
 </script>
 
