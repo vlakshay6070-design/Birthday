@@ -17,7 +17,7 @@ body{
   overflow:hidden;
 }
 
-/* ⭐ Stars overlay */
+/* ⭐ STARS OVERLAY */
 #stars{
   position:fixed;
   inset:0;
@@ -26,23 +26,22 @@ body{
 }
 .star{
   position:absolute;
-  width:2px;
-  height:2px;
-  background:rgba(255,255,255,0.95);
   border-radius:50%;
-  animation:twinkle 2.4s ease-in-out infinite;
-  filter:drop-shadow(0 0 6px rgba(255,255,255,0.6));
+  background:white;
+  animation:twinkle 2.2s ease-in-out infinite;
+  box-shadow:0 0 12px rgba(255,255,255,0.9),
+             0 0 22px rgba(255,255,255,0.6),
+             0 0 40px rgba(255,255,255,0.4);
 }
 @keyframes twinkle{
-  0%,100%{opacity:0.2; transform:scale(0.8)}
-  50%{opacity:1; transform:scale(1.6)}
+  0%,100%{opacity:0.25; transform:scale(0.8)}
+  50%{opacity:1; transform:scale(1.8)}
 }
 
-/* 💖 Floating hearts + ✨ sparkles (constant) */
+/* 💖 FLOATING HEARTS + SPARKLES */
 .floaty{
   position:fixed;
   bottom:-20px;
-  left:0;
   pointer-events:none;
   z-index:2;
   opacity:0.9;
@@ -55,25 +54,33 @@ body{
   }
 }
 
-/* START SCREEN */
+/* START SCREEN (switzerland bg) */
 #start{
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,0.75);
+  background:url("switzerland.jpg") center/cover no-repeat;
   display:flex;
   justify-content:center;
   align-items:center;
   z-index:20;
 }
+#start::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.45);
+}
 #start button{
+  position:relative;
   font-size:24px;
   padding:18px 40px;
   border:none;
   border-radius:40px;
   cursor:pointer;
+  box-shadow:0 12px 30px rgba(0,0,0,0.35);
 }
 
-/* MAIN CARD (glass blur) */
+/* MAIN CARD (GLASS) */
 #main{
   display:none;
   position:relative;
@@ -82,7 +89,6 @@ body{
   width:340px;
   text-align:center;
 
-  /* glass effect */
   background:rgba(255,255,255,0.18);
   border:1px solid rgba(255,255,255,0.35);
   backdrop-filter: blur(14px);
@@ -100,7 +106,7 @@ h1{
   text-shadow:0 10px 30px rgba(0,0,0,0.5);
 }
 
-/* CAKE (glow animation) */
+/* CAKE (GLOW ANIMATION) */
 .cake{
   width:220px;
   height:140px;
@@ -203,7 +209,7 @@ h1{
   to{transform:scale(1.25)}
 }
 
-/* Smoke puffs (only when candles are blown) */
+/* SMOKE */
 .smoke-wrap{
   position:absolute;
   top:-55px;
@@ -219,24 +225,23 @@ h1{
   width:14px;
   height:14px;
   border-radius:50%;
-  background:rgba(200,200,200,0.9);
-  filter:blur(0.5px);
+  background:rgba(210,210,210,0.9);
   animation:smokeUp 1.8s ease-out forwards;
-  opacity:0.95;
 }
 @keyframes smokeUp{
   0%{ transform:translateY(18px) scale(0.7); opacity:0.85; }
-  100%{ transform:translateY(-40px) scale(1.4); opacity:0; }
+  100%{ transform:translateY(-40px) scale(1.5); opacity:0; }
 }
 
-/* WISH MESSAGE (glow when candles out) */
+/* WISH MESSAGE */
 #wishMsg{
   margin-top:14px;
   font-size:16px;
   font-weight:700;
   color:#fff;
   display:none;
-  text-shadow:0 0 10px rgba(255,255,255,0.9), 0 0 18px rgba(255,160,200,0.8);
+  text-shadow:0 0 12px rgba(255,255,255,0.9),
+              0 0 22px rgba(255,160,200,0.9);
 }
 
 /* CALENDAR */
@@ -257,10 +262,7 @@ h1{
   gap:4px;
 }
 .day{padding:4px}
-.mark{
-  background:pink;
-  border-radius:50%;
-}
+.mark{ background:pink; border-radius:50%; }
 
 /* PHOTOS */
 .photos{
@@ -271,6 +273,33 @@ h1{
   display:flex;
   gap:12px;
 }
+
+/* ✨ DECORATION ABOVE PHOTOS */
+.photos::before{
+  content:"✦ ✧ ✦ ✧ ✦";
+  position:absolute;
+  top:-28px;
+  left:50%;
+  transform:translateX(-50%);
+  font-size:18px;
+  color:white;
+  opacity:0.85;
+  text-shadow:0 0 14px rgba(255,255,255,0.95);
+}
+
+/* 💖 DECORATION BELOW PHOTOS */
+.photos::after{
+  content:"♡ ♡ ♡";
+  position:absolute;
+  bottom:-24px;
+  left:50%;
+  transform:translateX(-50%);
+  font-size:18px;
+  color:pink;
+  opacity:0.95;
+  text-shadow:0 0 14px rgba(255,150,200,0.9);
+}
+
 .photos img{
   width:65px;
   height:85px;
@@ -281,9 +310,7 @@ h1{
   transition:0.2s;
   box-shadow:0 10px 22px rgba(0,0,0,0.25);
 }
-.photos img:hover{
-  transform:scale(1.1);
-}
+.photos img:hover{ transform:scale(1.1); }
 
 /* FULLSCREEN PHOTO POPUP */
 #popup{
@@ -303,7 +330,7 @@ h1{
   box-shadow:0 10px 25px rgba(0,0,0,0.5);
 }
 
-/* CONFETTI (tap) */
+/* CONFETTI */
 .confetti{
   position:fixed;
   width:8px;
@@ -315,11 +342,11 @@ h1{
   to{transform:translateY(100vh) rotate(360deg)}
 }
 
-/* 🎁 Gift Button (replaces envelope) */
-#giftBtn{
+/* 💌 ENVELOPE BUTTON */
+#envelopeBtn{
   position:absolute;
   top:18px;
-  left:18px;
+  right:18px;
   width:56px;
   height:44px;
   background:rgba(255,255,255,0.95);
@@ -329,11 +356,24 @@ h1{
   display:flex;
   justify-content:center;
   align-items:center;
-  font-size:22px;
   box-shadow:0 10px 22px rgba(0,0,0,0.25);
   transition:0.2s;
 }
-#giftBtn:hover{ transform:scale(1.08); }
+#envelopeBtn:hover{ transform:scale(1.08); }
+
+.envIcon{
+  font-size:22px;
+  display:inline-block;
+  animation:envWiggle 2.8s infinite;
+  transform-origin:50% 60%;
+}
+@keyframes envWiggle{
+  0%, 86%, 100% { transform:rotate(0deg) translateX(0); }
+  88% { transform:rotate(-7deg) translateX(-1px); }
+  90% { transform:rotate(7deg) translateX(1px); }
+  92% { transform:rotate(-7deg) translateX(-1px); }
+  94% { transform:rotate(7deg) translateX(1px); }
+}
 
 /* PLAYLIST POPUP */
 #playlistPopup{
@@ -354,11 +394,7 @@ h1{
   box-shadow:0 10px 30px rgba(0,0,0,0.4);
 }
 .popupBox h2{ margin:0; font-size:20px; }
-.popupBox p{
-  font-size:14px;
-  color:#555;
-  margin-top:10px;
-}
+.popupBox p{ font-size:14px; color:#555; margin-top:10px; }
 .popupBox a{
   display:inline-block;
   margin-top:18px;
@@ -381,7 +417,6 @@ h1{
 
 <body>
 
-<!-- overlays -->
 <div id="stars"></div>
 
 <div id="start">
@@ -396,7 +431,7 @@ h1{
 <!-- PLAYLIST POPUP -->
 <div id="playlistPopup" onclick="closePlaylistPopup()">
   <div class="popupBox" onclick="event.stopPropagation()">
-    <h2>A Gift For You 🎁🎶</h2>
+    <h2>For You 💌🎶</h2>
     <p>I made a playlist for you…<br>hope you like it 🤍</p>
     <a href="https://open.spotify.com/playlist/06Aj93NfdzlxVX8Sw1dlXK?si=6dc41f335ee44b1c&pt=f33258345be67b723ba7c4197d771aff" target="_blank">
       Open Playlist 🎧
@@ -405,10 +440,11 @@ h1{
   </div>
 </div>
 
-<div id="main" onclick="confetti()">
+<div id="main">
 
-  <!-- Gift button -->
-  <div id="giftBtn" onclick="openPlaylistPopup(event)">🎁</div>
+  <div id="envelopeBtn" onclick="openPlaylistPopup(event)">
+    <span class="envIcon">💌</span>
+  </div>
 
   <h1>Happy Birthday Aaria 🤍</h1>
 
@@ -425,7 +461,6 @@ h1{
       <div class="candle"><div class="flame"></div></div>
     </div>
 
-    <!-- smoke layer -->
     <div class="smoke-wrap" id="smokeWrap"></div>
 
     <div class="cake-photo">
@@ -462,18 +497,22 @@ h1{
 <audio id="music" src="futile-devices.mp3"></audio>
 
 <script>
-/* START */
 function start(){
   document.getElementById("start").style.display="none";
   document.getElementById("main").style.display="block";
   document.getElementById("music").play();
 
-  // start overlays only after start
-  buildStars(55);
+  buildStars(75);
   startFloaties();
 }
 
-/* CONFETTI on tap (still) */
+/* CONFETTI ON ANY CLICK ANYWHERE */
+document.addEventListener("click", () => {
+  if(document.getElementById("start").style.display !== "none") return;
+  confetti();
+});
+
+/* CONFETTI */
 function confetti(){
   for(let i=0;i<26;i++){
     let c=document.createElement("div");
@@ -504,102 +543,93 @@ function closePlaylistPopup(){
   document.getElementById("playlistPopup").style.display="none";
 }
 
-/* ⭐ Stars */
+/* STARS */
 function buildStars(n){
-  const stars = document.getElementById("stars");
-  stars.innerHTML = "";
+  const stars=document.getElementById("stars");
+  stars.innerHTML="";
   for(let i=0;i<n;i++){
-    const s = document.createElement("div");
-    s.className = "star";
-    s.style.left = Math.random()*100 + "vw";
-    s.style.top  = Math.random()*100 + "vh";
-    s.style.animationDuration = (1.6 + Math.random()*2.6) + "s";
-    s.style.opacity = 0.2 + Math.random()*0.8;
-    const size = 1 + Math.random()*2.2;
-    s.style.width = size + "px";
-    s.style.height = size + "px";
+    const s=document.createElement("div");
+    s.className="star";
+    s.style.left=Math.random()*100+"vw";
+    s.style.top=Math.random()*100+"vh";
+    const size=1.5+Math.random()*3.2;
+    s.style.width=size+"px";
+    s.style.height=size+"px";
+    s.style.animationDuration=(1.1+Math.random()*2.4)+"s";
     stars.appendChild(s);
   }
 }
 
-/* 💖 Hearts + ✨ sparkles */
-let floatyTimer = null;
+/* FLOATING HEARTS */
+let floatyTimer=null;
 function startFloaties(){
   if(floatyTimer) clearInterval(floatyTimer);
-  floatyTimer = setInterval(()=>{
+  floatyTimer=setInterval(()=>{
     makeFloaty(Math.random()<0.7 ? "heart" : "sparkle");
-  }, 420);
+  },420);
 }
 function makeFloaty(type){
-  const el = document.createElement("div");
-  el.className = "floaty";
-  el.style.left = (5 + Math.random()*90) + "vw";
-  el.style.setProperty("--drift", ((Math.random()*80)-40) + "px");
-  el.style.setProperty("--rot", ((Math.random()*180)-90) + "deg");
-  el.style.animationDuration = (5 + Math.random()*3.5) + "s";
-  el.style.fontSize = (12 + Math.random()*16) + "px";
-  el.style.opacity = 0.5 + Math.random()*0.5;
-
-  el.textContent = (type==="heart") ? (Math.random()<0.5 ? "♡" : "♥") : "✦";
+  const el=document.createElement("div");
+  el.className="floaty";
+  el.style.left=(5+Math.random()*90)+"vw";
+  el.style.setProperty("--drift", ((Math.random()*80)-40)+"px");
+  el.style.setProperty("--rot", ((Math.random()*180)-90)+"deg");
+  el.style.animationDuration=(5+Math.random()*3.5)+"s";
+  el.style.fontSize=(12+Math.random()*16)+"px";
+  el.style.opacity=0.5+Math.random()*0.5;
+  el.textContent=(type==="heart") ? (Math.random()<0.5?"♡":"♥") : "✦";
   document.body.appendChild(el);
-  setTimeout(()=>el.remove(), 9000);
+  setTimeout(()=>el.remove(),9000);
 }
 
-/* 🕯️ Blow candles upgrade: smoke + glow wish */
-const cakeEl = document.getElementById("cake");
-const wishMsg = document.getElementById("wishMsg");
-const smokeWrap = document.getElementById("smokeWrap");
-let candlesOut = false;
+/* BLOW CANDLES + SMOKE */
+const cakeEl=document.getElementById("cake");
+const wishMsg=document.getElementById("wishMsg");
+const smokeWrap=document.getElementById("smokeWrap");
+let candlesOut=false;
 
-cakeEl.addEventListener("click", (e) => {
+cakeEl.addEventListener("click",(e)=>{
   e.stopPropagation();
-  candlesOut = !candlesOut;
+  candlesOut=!candlesOut;
 
-  // flames on/off
-  document.querySelectorAll(".flame").forEach(flame => {
-    flame.style.display = candlesOut ? "none" : "block";
+  document.querySelectorAll(".flame").forEach(flame=>{
+    flame.style.display=candlesOut?"none":"block";
   });
 
-  // wish message glow
-  wishMsg.style.display = candlesOut ? "block" : "none";
+  wishMsg.style.display=candlesOut?"block":"none";
 
-  // smoke effect
   if(candlesOut){
     puffSmoke();
   } else {
-    smokeWrap.style.display = "none";
-    smokeWrap.innerHTML = "";
+    smokeWrap.style.display="none";
+    smokeWrap.innerHTML="";
   }
 });
 
 function puffSmoke(){
-  smokeWrap.style.display = "block";
-  smokeWrap.innerHTML = "";
+  smokeWrap.style.display="block";
+  smokeWrap.innerHTML="";
 
-  // create a few smoke puffs around candle area
-  const positions = [30, 70, 110]; // roughly above each candle
-  for(let i=0;i<10;i++){
-    const s = document.createElement("div");
-    s.className = "smoke";
-    const base = positions[Math.floor(Math.random()*positions.length)];
-    s.style.left = (base + (Math.random()*18-9)) + "px";
-    s.style.top  = (18 + (Math.random()*10-5)) + "px";
-    s.style.animationDuration = (1.4 + Math.random()*1.1) + "s";
+  const positions=[30,70,110];
+  for(let i=0;i<12;i++){
+    const s=document.createElement("div");
+    s.className="smoke";
+    const base=positions[Math.floor(Math.random()*positions.length)];
+    s.style.left=(base+(Math.random()*18-9))+"px";
+    s.style.top=(18+(Math.random()*10-5))+"px";
+    s.style.animationDuration=(1.4+Math.random()*1.1)+"s";
     smokeWrap.appendChild(s);
   }
 
-  // auto clear later but keep wrap visible briefly
   setTimeout(()=>{
-    smokeWrap.style.display = "none";
-    smokeWrap.innerHTML = "";
-  }, 1800);
+    smokeWrap.style.display="none";
+    smokeWrap.innerHTML="";
+  },1800);
 }
 </script>
 
 </body>
 </html>
-
-
 
 
 
