@@ -138,22 +138,20 @@
   }
 
   /* prettier title */
-  .titleWrap{ text-align:center; margin-top:6px; }
-  .title{
-    margin:12px 0 0;
-    font-size:36px;
-    font-weight:900;
-    letter-spacing:.3px;
-    color:#fff;
-    text-shadow:0 10px 34px rgba(0,0,0,0.55);
-  }
-  .subGlow{
-    margin:10px 0 26px;
-    font-weight:900;
-    color:rgba(255,255,255,0.85);
-    text-shadow:0 0 16px rgba(255,255,255,0.7);
-    font-size:14px;
-  }
+ .titleWrap{
+  text-align:center;
+  margin-top:10px;
+  margin-bottom:24px;   /* ✅ adds space before cake */
+}
+
+ .subGlow{
+  margin:12px 0 0;      /* ✅ keeps it under the title */
+  font-weight:900;
+  color:rgba(255,255,255,0.85);
+  text-shadow:0 0 16px rgba(255,255,255,0.7);
+  font-size:13px;       /* ✅ slightly smaller */
+  line-height:1.2;
+}
 
   /* layout row */
   .contentRow{
@@ -170,14 +168,16 @@
   }
 
   /* CAKE */
-  .cake{
-    width:270px; height:175px;
-    background:#f6b1c3;
-    border-radius:28px;
-    position:relative;
-    cursor:pointer;
-    box-shadow:0 16px 34px rgba(0,0,0,0.22);
-  }
+ .cake{
+  width:270px;
+  height:175px;
+  background:#f6b1c3;
+  border-radius:28px;
+  position:relative;
+  cursor:pointer;
+  box-shadow:0 16px 34px rgba(0,0,0,0.22);
+  margin-top:18px;
+}
   .cake::before{
     content:"";
     position:absolute;
