@@ -110,25 +110,19 @@
 
   /* ---------- SLIDE 1 ---------- */
 
-  /* playlist button ONLY slide 1 — moved lower so no collision */
-#playlistBtn{
-  position:absolute;
-  top:auto;
-  right:12px;
-  bottom:12px;          /* ✅ moved to bottom */
-  width:66px;
-  height:52px;
-  background:rgba(255,255,255,0.95);
-  border-radius:18px;
-  border:2px solid #ff8fab;
-  cursor:pointer;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  box-shadow:0 10px 22px rgba(0,0,0,0.25);
-  z-index:10;
-}
-  
+  /* ✅ PLAYLIST button stays TOP-RIGHT but won't collide */
+  #playlistBtn{
+    position:absolute;
+    top:16px; right:16px;            /* ✅ top */
+    width:66px; height:52px;
+    background:rgba(255,255,255,0.95);
+    border-radius:18px;
+    border:2px solid #ff8fab;
+    cursor:pointer;
+    display:flex; justify-content:center; align-items:center;
+    box-shadow:0 10px 22px rgba(0,0,0,0.25);
+    z-index:10;
+  }
   .envIcon{
     font-size:26px;
     display:inline-block;
@@ -143,21 +137,27 @@
     94% { transform:rotate(7deg) translateX(1px); }
   }
 
-  /* prettier title */
- .titleWrap{
-  text-align:center;
-  margin-top:10px;
-  margin-bottom:24px;   /* ✅ adds space before cake */
-}
-
- .subGlow{
-  margin:12px 0 0;      /* ✅ keeps it under the title */
-  font-weight:900;
-  color:rgba(255,255,255,0.85);
-  text-shadow:0 0 16px rgba(255,255,255,0.7);
-  font-size:13px;       /* ✅ slightly smaller */
-  line-height:1.2;
-}
+  /* Title block has extra right padding so it never hits the envelope */
+  .titleWrap{
+    text-align:center;
+    margin-top:6px;
+    padding-right:95px;  /* ✅ space reserved for top-right envelope */
+  }
+  .title{
+    margin:12px 0 0;
+    font-size:36px;
+    font-weight:900;
+    letter-spacing:.3px;
+    color:#fff;
+    text-shadow:0 10px 34px rgba(0,0,0,0.55);
+  }
+  .subGlow{
+    margin:10px 0 26px;
+    font-weight:900;
+    color:rgba(255,255,255,0.85);
+    text-shadow:0 0 16px rgba(255,255,255,0.7);
+    font-size:14px;
+  }
 
   /* layout row */
   .contentRow{
@@ -174,16 +174,14 @@
   }
 
   /* CAKE */
- .cake{
-  width:270px;
-  height:175px;
-  background:#f6b1c3;
-  border-radius:28px;
-  position:relative;
-  cursor:pointer;
-  box-shadow:0 16px 34px rgba(0,0,0,0.22);
-  margin-top:18px;
-}
+  .cake{
+    width:270px; height:175px;
+    background:#f6b1c3;
+    border-radius:28px;
+    position:relative;
+    cursor:pointer;
+    box-shadow:0 16px 34px rgba(0,0,0,0.22);
+  }
   .cake::before{
     content:"";
     position:absolute;
@@ -301,23 +299,6 @@
     text-align:center;
     position:relative;
   }
-  .bottomRibbon{
-  margin-top:14px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:10px;
-  color:rgba(255,255,255,0.9);
-  font-weight:900;
-  text-shadow:0 0 12px rgba(255,255,255,0.6);
-  letter-spacing:1px;
-}
-.ribbonLine{
-  height:2px;
-  width:80px;
-  background:linear-gradient(90deg, transparent, rgba(255,255,255,0.9), transparent);
-  border-radius:99px;
-}
   .photosDecor{
     display:flex;
     align-items:center;
@@ -348,6 +329,25 @@
     border-radius:50%;
     background:rgba(255,255,255,0.75);
     box-shadow:0 0 12px rgba(255,255,255,0.75);
+  }
+
+  /* extra design below photos */
+  .bottomRibbon{
+    margin-top:14px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    color:rgba(255,255,255,0.9);
+    font-weight:900;
+    text-shadow:0 0 12px rgba(255,255,255,0.6);
+    letter-spacing:1px;
+  }
+  .ribbonLine{
+    height:2px;
+    width:80px;
+    background:linear-gradient(90deg, transparent, rgba(255,255,255,0.9), transparent);
+    border-radius:99px;
   }
 
   .photos{
@@ -514,29 +514,22 @@
     font-size:20px; color:white;
   }
 
-  /* ✅ Slide 2 photo FULL — no cropping */
-.slide2Photo{
-  width:min(640px, 92vw);
-  border-radius:22px;
-  overflow:hidden;
-  border:1px solid rgba(255,255,255,0.45);
-  box-shadow:0 18px 42px rgba(0,0,0,0.30);
-  background:rgba(255,255,255,0.08);
-
-  /* ✅ NEW: give it a safe height so full pic fits */
-  max-height:42vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-.slide2Photo img{
-  width:100%;
-  height:100%;
-  max-height:42vh;      /* ✅ NEW */
-  object-fit:contain;   /* ✅ full image, no crop */
-  display:block;
-  background:rgba(0,0,0,0.12);
-}
+  /* ✅ slide 2 photo: show whole image on ALL devices */
+  .slide2Photo{
+    width:min(640px, 92vw);
+    border-radius:22px;
+    overflow:hidden;
+    border:1px solid rgba(255,255,255,0.45);
+    box-shadow:0 18px 42px rgba(0,0,0,0.30);
+    background:rgba(255,255,255,0.08);
+  }
+  .slide2Photo img{
+    width:100%;
+    height:auto;
+    display:block;
+    object-fit:contain;
+    background:rgba(0,0,0,0.12);
+  }
 
   /* LETTER OVERLAY */
   #letterOverlay{
@@ -621,11 +614,18 @@
     body{ background-attachment: scroll; }
     .panel{ min-height: 720px; padding:18px 16px 28px; }
 
+    .titleWrap{ padding-right:92px; } /* still reserve space for envelope */
     .title{ font-size:28px; }
     .subGlow{ margin:8px 0 22px; }
 
-    /* playlist button moved further down on phone */
-    #playlistBtn{ top:86px; right:12px; }
+    /* playlist stays top-right, but slightly smaller on phone */
+    #playlistBtn{
+      top:12px;
+      right:12px;
+      width:62px;
+      height:48px;
+      border-radius:16px;
+    }
 
     .contentRow{
       flex-direction:column;
@@ -709,7 +709,7 @@
           <div class="centerCol">
             <div class="cake" id="cake">
 
-              <!-- extra sprinkles (no more empty look) -->
+              <!-- extra sprinkles -->
               <div class="sprinkle spA" style="top:14px;left:36px"></div>
               <div class="sprinkle spB" style="top:22px;left:98px"></div>
               <div class="sprinkle spC" style="top:15px;left:165px"></div>
@@ -742,7 +742,7 @@
 
             <div id="wishMsg">Make a wish ✨</div>
 
-            <!-- photo section with designs -->
+            <!-- photos + designs -->
             <div class="photosWrap">
               <div class="photosDecor">
                 <div class="decorLine"></div>
@@ -760,13 +760,13 @@
               <div class="decorDots">
                 <span></span><span></span><span></span><span></span><span></span>
               </div>
-            </div>
-            <div class="bottomRibbon">
-  <div class="ribbonLine"></div>
-  ♡ ✦ ♡ ✦ ♡
-  <div class="ribbonLine"></div>
-</div>
 
+              <div class="bottomRibbon">
+                <div class="ribbonLine"></div>
+                ♡ ✧ ♡ ✧ ♡
+                <div class="ribbonLine"></div>
+              </div>
+            </div>
 
             <button class="openLetterBtn" onclick="goToSlide(2); event.stopPropagation();">
               Open Letter ➜
@@ -779,7 +779,7 @@
               <div class="day">1</div><div class="day">2</div><div class="day">3</div><div class="day">4</div><div class="day">5</div><div class="day">6</div><div class="day">7</div>
               <div class="day">8</div><div class="day">9</div><div class="day">10</div><div class="day">11</div><div class="day">12</div><div class="day">13</div><div class="day">14</div>
               <div class="day">15</div><div class="day">16</div><div class="day">17</div><div class="day">18</div><div class="day">19</div><div class="day">20</div><div class="day">21</div>
-              <div class="day">22</div><div class="day">23</div><div class="day">24<div class="day">25</div><div class="day mark">26</div><div class="day">27</div><div class="day">28</div>
+              <div class="day">22</div><div class="day">23</div><div class="day">24</div><div class="day">25</div><div class="day mark">26</div><div class="day">27</div><div class="day">28</div>
             </div>
           </div>
         </div>
@@ -814,7 +814,8 @@
     <button id="nextBtn" onclick="nextSlide()">Next ➜</button>
   </div>
 
-  <audio id="music" src="futile-devices.mp3"></audio>
+  <!-- ✅ music loops -->
+  <audio id="music" src="futile-devices.mp3" loop></audio>
 
 <script>
   const $ = (id) => document.getElementById(id);
@@ -839,6 +840,8 @@ Happy Birthday once again, Aaria 🤍`;
   function start(){
     $("start").style.display = "none";
     $("app").style.display = "block";
+
+    // play (loop is already set on <audio>)
     $("music").play().catch(()=>{});
 
     $("letterText").textContent = para;
@@ -846,6 +849,7 @@ Happy Birthday once again, Aaria 🤍`;
     const isMobile = window.matchMedia("(max-width: 720px)").matches;
     buildStars(isMobile ? 28 : 64);
 
+    showSlide(1);
     updateNav();
   }
 
@@ -971,8 +975,10 @@ Happy Birthday once again, Aaria 🤍`;
   }
   function closeLetter(){ $("letterOverlay").style.display="none"; }
 
+  // init
   showSlide(1);
 </script>
 
 </body>
 </html>
+
